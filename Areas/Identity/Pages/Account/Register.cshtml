@@ -1,0 +1,135 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Bootstrap CSS (you should include this) -->
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Custom CSS -->
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Example background color */
+            font-family: 'Arial', sans-serif; /* Example font family */
+            color: #495057; /* Example text color for the body */
+        }
+
+        h1 {
+            color: #007bff; /* Example heading color */
+        }
+
+        #registerForm {
+            margin-top: 20px;
+            background-color: #ffffff; /* Example form background color */
+            border: 1px solid #ced4da; /* Example form border color */
+            border-radius: 5px; /* Example border radius */
+            padding: 20px; /* Example padding for the form */
+        }
+
+        .custom-form-label {
+            color: #495057;
+        }
+
+        .form-control {
+            border-color: #ced4da; /* Example border color for form controls */
+        }
+
+        #registerSubmit {
+            background-color: #28a745; /* Example submit button background color */
+            border-color: #28a745; /* Example submit button border color */
+            color: #ffffff; /* Example submit button text color */
+        }
+
+        .external-login-button {
+            margin-right: 10px;
+        }
+
+            .external-login-button:hover {
+                background-color: #007bff; /* Example hover background color for external login buttons */
+                border-color: #007bff; /* Example hover border color for external login buttons */
+            }
+    </style>
+
+</head>
+<body>
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <input asp-for="Input.Name" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter your name" />
+                    <label asp-for="Input.Name" class="form-label custom-form-label">User Name</label>
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter your email" />
+                    <label asp-for="Input.Email" class="form-label custom-form-label">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <input asp-for="Input.Password" class="form-control" aria-required="true" placeholder="Enter your password" />
+                    <label asp-for="Input.Password" class="form-label custom-form-label">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" aria-required="true" placeholder="Confirm your password" />
+                    <label asp-for="Input.ConfirmPassword" class="form-label custom-form-label">ConfirmPassword</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            </form>
+        </div>
+        <div class="col-md-6 offset-md-2">
+            <section>
+                <h3>Tie The Knot</h3>
+                <hr />
+                @if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                        Tie The Knot is a trusted wedding vendor directory that helps engaged couples search, compare and find the perfect local wedding professionals for their wedding. With all the planning tools, wedding services, inspiration and community one could dream of, wedding planning is easy and every part of the journey can be enjoyed.
+                        </p>
+                        <p>
+                            Our professional photographers will ensure that every special moment of your wedding is beautifully captured, creating timeless memories you'll cherish forever.
+                            </p>
+                            <p>
+                            Set the perfect mood with our curated selection of musicians and DJs, providing a melodic backdrop that enhances the magic of your wedding celebration.
+                            </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary external-login-button" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            </section>
+        </div>
+    </div>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+</body>
+</html>

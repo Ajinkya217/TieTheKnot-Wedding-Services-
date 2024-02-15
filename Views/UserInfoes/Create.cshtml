@@ -1,0 +1,141 @@
+﻿@model TieTheKnot.Models.UserInfo
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container mt-4">
+    <div class="text-center">
+    </div>
+
+    <div class="text-center mt-3">
+        <h4 class="font-weight-normal">UserInfo</h4>
+        <hr class="my-4">
+    </div>
+
+
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="UserName" class="control-label">User Name:</label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="CateringServices" class="control-label">Catering Services:</label>
+                    <select asp-for="CateringServices" class="form-control">
+                        <option value="">Select Catering Service</option>
+                        <option value="Banyan Tree Hospitality">Banyan Tree Hospitality</option>
+                        <option value="Kimaya Caterers">Kimaya Caterers</option>
+                        <option value="Sharon Caterers">Sharon Caterers</option>
+                        <option value="Thapa catering services">Thapa catering services</option>
+                        <option value="Yakoob Caterers">Yakoob Caterers</option>
+                        <option value="Valencia Caterers">Valencia Caterers</option>
+                        <option value="Catering by SK">Catering by SK</option>
+                        <option value="None">None</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <span asp-validation-for="CateringServices" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Decoration" class="control-label">Decoration:</label>
+                    <select asp-for="Decoration" class="form-control">
+                        <option value="">Select Decoration Service</option>
+                        <option value="Dyota Wedding Decors">Dyota Wedding Decors</option>
+                        <option value="Sam Innovation">Sam Innovation</option>
+                        <option value="Zig Zag Decors">Zig Zag Decors</option>
+                        <option value="SVS Events">SVS Events</option>
+                        <option value="Jollo Enterprises">Jollo Enterprises</option>
+                        <option value="Iris flower Decorations">Iris flower Decorations</option>
+                        <option value="3D Decors and events">3D Decors and events</option>
+                        <option value="None">None</option>
+
+                    </select>
+
+                    <span asp-validation-for="Decoration" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="City" class="control-label">City:</label>
+                    <select asp-for="City" class="form-control">
+                        <option value="">Select City</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Lonavala">Lonavala</option>
+                        <option value="Satara">Satara</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Kerala">Kerala</option>
+
+                    </select>
+
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="PhotographyServices" class="control-label">Photography Services:</label>
+                    <select asp-for="PhotographyServices" class="form-control">
+                        <option value="">Select Photography Service</option>
+                        <option value="Studio S weddingz">Studio S weddingz</option>
+                        <option value="The candid house">The candid house</option>
+                        <option value="Phometo">Phometo</option>
+                        <option value="RVR PRO">RVR PRO</option>
+                        <option value="SJ Clickography">SJ Clickography</option>
+                        <option value="Cam-Era Stories">Cam-Era Stories</option>
+                        <option value="Vintage studios">Vintage studios</option>
+                        <option value="None">None</option>
+
+                    </select>
+
+                    <span asp-validation-for="PhotographyServices" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="WeddingDate" class="control-label">Wedding Date:</label>
+                    <input asp-for="WeddingDate" type="date" class="form-control" />
+                    <span asp-validation-for="WeddingDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="WeddingVenue" class="control-label">Wedding Venue:</label>
+                    <input asp-for="WeddingVenue" class="form-control" />
+                    @*  <select asp-for="PhotographyServices" class="form-control">
+                    <option value="">Select venue</option>
+                    <option value="Service1">Ramoji Film city</option>
+                    <option value="Service2">The coco club</option>
+                    <option value="Service3">MJ Avyanna</option>
+                    <option value="Service3">GCC Hotel and Club</option>
+                    <option value="Service3">Madhav Banquet</option>
+                    <option value="Service3">Blue Bay resort</option>
+                    <option value="Service3">Bindiga Peak resorts</option>
+                    <option value="Service3">Raj Resorts</option>
+
+                    </select> *@
+                    <span asp-validation-for="WeddingVenue" class="text-danger"></span>
+                </div>
+
+                <center>
+                    <div class="form-group mb-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </center>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

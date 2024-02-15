@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TieTheKnot", "TieTheKnot.csproj", "{FEF07B4C-3DDB-466D-B3AA-779AF5DED158}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEF07B4C-3DDB-466D-B3AA-779AF5DED158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF07B4C-3DDB-466D-B3AA-779AF5DED158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF07B4C-3DDB-466D-B3AA-779AF5DED158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF07B4C-3DDB-466D-B3AA-779AF5DED158}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {929BAFD1-E0EB-49FB-A050-4D55A7258F51}
+	EndGlobalSection
+EndGlobal

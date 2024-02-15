@@ -1,0 +1,91 @@
+﻿@model TieTheKnot.Models.UserInfo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    /* Add your custom styles here */
+    .details-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+        .details-container h1 {
+            text-align: center;
+        }
+
+        .details-container dl {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .details-container dt, .details-container dd {
+            padding: 8px;
+            
+        }
+
+        .details-container a {
+            display: block;
+            margin-top: 16px;
+            text-align: center;
+        }
+</style>
+
+<div class="details-container">
+    <h1>Details</h1>
+
+    <div>
+        <h4>UserInfo</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CateringServices)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CateringServices)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Decoration)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Decoration)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.City)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PhotographyServices)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PhotographyServices)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeddingDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeddingDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeddingVenue)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeddingVenue)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> 
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<TieTheKnot.Models.UserInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CateringServices)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decoration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotographyServices)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeddingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeddingVenue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            var firstItem = Model.LastOrDefault();
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.CateringServices)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.Decoration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.PhotographyServices)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.WeddingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.WeddingVenue)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@firstItem.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@firstItem.Id">Details</a> |
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td colspan="8">No data available</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<TieTheKnot.Models.VendorInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GstNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facility)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Charges)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PictureLinks)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@* @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GstNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Charges)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PictureLinks)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@
+        @if (Model.Any())
+        {
+            var firstItem = Model.FirstOrDefault();
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.VendorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.GstNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.Facility)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.Charges)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => firstItem.PictureLinks)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@firstItem.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@firstItem.Id">Details</a> |
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td colspan="7">No data available</td>
+            </tr>
+        }
+    </tbody>
+</table>

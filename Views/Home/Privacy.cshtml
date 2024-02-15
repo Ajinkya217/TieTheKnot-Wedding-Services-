@@ -1,0 +1,190 @@
+﻿@* @{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+ *@
+
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-XyUZsT0iU0Uj6CrzKkZl/C6FLYp3AaivKzPgcHeRwyotP8z+lb7c8C+pYcJ3GVkg5Cbq2bY2W9iiiv5miEVxpQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Additional CSS Styles -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        .hero-section {
+            background-color: #fffacd;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 2px solid #007bff;
+        }
+
+            .hero-section h1 {
+                color: #007bff;
+                font-weight: bold;
+            }
+
+            .hero-section p {
+                color: #555;
+                font-size: 1.2em;
+            }
+
+        .custom-button {
+            background-color: #ff6347;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+            .custom-button:hover {
+                background-color: #ff4c32;
+            }
+
+        /* Features Section Styles */
+        .features-section {
+            background-color: #ffe4b5;
+            text-align: center;
+            border-top: 2px solid #28a745;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .feature-item {
+            background-color: #add8e6;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .feature-item i {
+                color: #007bff;
+                font-size: 3em;
+                margin-bottom: 20px;
+            }
+
+            .feature-item h3 {
+                color: #007bff;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+
+            .feature-item p {
+                color: #555;
+                font-size: 1.2em;
+            }
+
+        /* Custom Section Styles */
+        .custom-section {
+            background-color: #f0f0f0;
+            padding: 50px 0;
+        }
+
+            .custom-section h2 {
+                color: #007bff;
+                font-size: 2em;
+                font-weight: bold;
+                margin-bottom: 30px;
+            }
+
+            .custom-section p {
+                color: #555;
+                font-size: 1.2em;
+            }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <h1 class="display-4">Tie The Knot</h1>
+                    <p class="lead">
+                        Tie The Knot is a trusted wedding vendor directory that helps engaged couples search, compare and
+                        find the perfect local wedding professionals for their wedding. With all the planning tools,
+                        wedding services, inspiration and community one could dream of, wedding planning is easy and
+                        every part of the journey can be enjoyed.
+                    </p>
+                    <a href="/Identity/Account/Register" class="btn btn-danger custom-button">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-camera fa-3x"></i>
+                        <h3>Capture Every Moment</h3>
+                        <p>
+                            Our professional photographers will ensure that every special moment of your wedding is
+                            beautifully captured, creating timeless memories you'll cherish forever.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-music fa-3x"></i>
+                        <h3>Melodic Atmosphere</h3>
+                        <p>
+                            Set the perfect mood with our curated selection of musicians and DJs, providing a melodic
+                            backdrop that enhances the magic of your wedding celebration.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-item">
+                        <i class="fas fa-users fa-3x"></i>
+                        <h3>Expert Planning Team</h3>
+                        <p>
+                            Our experienced wedding planning team is dedicated to turning your vision into reality. From
+                            logistics to decor, we've got it all covered for a stress-free planning process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   @*  <!-- Custom Section -->
+    <section class="custom-section">
+        <div class="container">
+            <h2 class="text-center">Custom Section</h2>
+            <p class="text-center">Add your custom content here.</p>
+        </div>
+    </section> *@
+
+</body>
+
+</html>

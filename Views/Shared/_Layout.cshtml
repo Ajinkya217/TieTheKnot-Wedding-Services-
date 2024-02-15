@@ -1,0 +1,251 @@
+﻿@* Import necessary namespaces *@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using System.Text.Encodings.Web
+
+@{
+    Layout = null; // If this is a standalone footer, you may not need a layout
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TieTheKnot_MS.Net</title>
+    <link rel="stylesheet" href="~/css/StyleSheet1.css" />
+
+@*     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+ *@    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Style/Footer.css" asp-append-version="true" /> <!-- Assuming you have a Footer.css file -->
+    <!-- Additional Styles -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            background-color: #FFC0D9;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+       #footer {
+        background-color: #808080; /* Grey background color */
+        padding: 40px 0;
+        color: #fff; /* Text color for the footer */
+    }
+
+    .footer-top {
+        padding-bottom: 30px;
+    }
+
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .footer-links a:hover {
+        color: #FFC0CB; /* Change color on hover */
+    }
+
+    .footer-contact p {
+        line-height: 1.8;
+    }
+
+    .footer-info h3 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .footer-info p {
+        text-align: justify;
+        line-height: 1.6;
+    }
+
+    .social-links a {
+        font-size: 24px;
+        margin-right: 15px;
+        color: #fff;
+    }
+
+    /* Media Queries (adjust as needed) */
+    media (max-width: 768px) {
+        .footer-links {
+            text-align: center;
+        }
+
+        .footer-links ul {
+            padding-left: 0;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+    }
+
+
+        /* Add more styles as needed */
+    </style>
+
+</head>
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/Uploads/logo.jpg" alt="Logo" />
+                TieTheKnot
+            </a>
+            <div class="container-fluid">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                       @*  <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li> *@
+                       
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
+                            </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserInfoes" asp-action="Create">User Form</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="VendorInfoes" asp-action="Create">Vendor Form</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="AdminUserInfo" asp-action="Index">User List</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="AdminVendor" asp-action="Index">Vendor List</a>
+                            </li>
+                        }
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="footer" class="bg-pink">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/About">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/WeddingVenues">Wedding Venues</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/WeddingVendors">Wedding Vendors </a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/all-news">Gallery</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/WeddingVenues">Wedding Venues</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/WeddingVendors">Wedding Vendors </a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Travel Management</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Online Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Online Booking</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            A105 Laxmi Nagar <br />
+                            Mumbai, MH 400057<br />
+                            India <br /><br />
+                            <strong>Phone:</strong> +91 80825 87050<br />
+                            <strong>Email:</strong> team9@gmail.com<br />
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3>About Our Team</h3>
+                        <p style="text-align: justify;">Our team is team 9 for this mini project. We have five members in our team. Sudarshan, Sudarshan, Omkar, Ankit, Ajinkya</p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Team 9</span></strong>. with love. All Rights Reserved
+            </div>
+            <div class="credits">
+                <b>Designed by <a href="#">Team 9</a></b>
+            </div>
+        </div>
+        <div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <environment include="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation/1.19.2/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    </environment>
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

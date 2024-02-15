@@ -1,0 +1,157 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Bootstrap CSS (you should include this) -->
+    <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Example background color */
+            font-family: 'Arial', sans-serif; /* Example font family */
+            color: #495057; /* Example text color for the body */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        h1 {
+            color: #007bff; /* Example heading color */
+            text-align: center; /* Center-align the heading */
+            padding-top: 20px; /* Add some padding at the top */
+        }
+
+        .row {
+            margin: 0; /* Remove default margin for rows */
+        }
+
+        #account {
+            margin-top: 20px;
+            background-color: #ffffff; /* Example form background color */
+            border: 1px solid #ced4da; /* Example form border color */
+            border-radius: 10px; /* Example border radius */
+            padding: 30px; /* Example padding for the form */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example box shadow */
+        }
+
+        .form-floating {
+            margin-bottom: 20px; /* Example margin between form fields */
+        }
+
+        .form-label {
+            color: #007bff; /* Example label color */
+        }
+
+        .form-control {
+            border-color: #007bff; /* Example border color for form controls */
+            border-radius: 5px; /* Example border radius */
+        }
+
+        .form-check-input {
+            margin-top: 5px; /* Example margin for the checkbox */
+        }
+
+        #login-submit {
+            background-color: #28a745; /* Example submit button background color */
+            border-color: #28a745; /* Example submit button border color */
+            color: #ffffff; /* Example submit button text color */
+            width: 100%; /* Make the button full width */
+            padding: 10px; /* Example padding for the button */
+            font-size: 18px; /* Example font size for the button */
+            font-weight: bold; /* Example font weight for the button */
+        }
+
+        #forgot-password, #resend-confirmation {
+            color: #007bff; /* Example link color */
+            font-size: 14px; /* Example font size for the links */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        #forgot-password:hover, #resend-confirmation:hover {
+            text-decoration: underline; /* Underline links on hover */
+        }
+
+        .external-login-button {
+            margin-right: 10px;
+            padding: 10px; /* Example padding for external login buttons */
+            font-size: 16px; /* Example font size for external login buttons */
+            border-radius: 5px; /* Example border radius for external login buttons */
+        }
+
+        .external-login-button:hover {
+            background-color: #007bff; /* Example hover background color for external login buttons */
+            border-color: #007bff; /* Example hover border color for external login buttons */
+        }
+
+        .col-md-4,
+        .col-md-6 {
+            padding: 20px; /* Add padding to columns */
+        }
+
+        media (max-width: 768px) {
+            .col-md-4,
+            .col-md-6 {
+                padding: 0; /* Remove padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                    <center><h2 class="mb-4">Log In</h2></center>
+                    <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email" class="form-label">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                    <label asp-for="Input.Password" class="form-label">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-check mb-4">
+                    <input class="form-check-input" asp-for="Input.RememberMe" />
+                    <label class="form-check-label form-label" asp-for="Input.RememberMe">@Html.DisplayNameFor(m => m.Input.RememberMe)</label>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="btn btn-lg btn-success">Log in</button>
+                </div>
+                <div class="mt-3">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-muted">Register as a new user</a>
+                    </p>
+                    <p>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+</body>
+</html>
